@@ -44,6 +44,40 @@ Everything local by default - no internet needed. But signal to friends you're "
 
 **Holochain SYNC** or similar: decentralized real-time collaboration. Everyone interacts with their version; meaningful changes become git commits via LLM intelligence. Transient actions (mouse movements) forgotten, meaningful actions (text edits) persist.
 
+## Platform Strategy
+
+### Dual Distribution Model
+
+DreamOS exists in two forms:
+
+1. **Application Ecosystem** - Runs on any existing OS (macOS, Windows, Linux). The portable layer that works everywhere.
+
+2. **Standalone Linux** - Runs directly on hardware via Arch Linux. Maximum performance, minimal overhead.
+
+The standalone version is the pure expression - no legacy OS cruft between you and the dream space.
+
+### Why Arch Linux
+
+Arch provides the minimal foundation: kernel, systemd, networking, audio (pipewire), GPU drivers. Nothing more. No desktop environment debates, no conflicting display managers, no preinstalled bloat.
+
+Traditional Arch installation is notoriously difficult - manual partitioning, bootloader configuration, hardware-specific decisions with no GUI assistance. This "rite of passage" exists because Arch refuses to make choices for you.
+
+DreamOS simplifies this dramatically:
+- **Single UI runtime** - One Tauri instance handles all visual interfaces
+- **Collapsed choices** - No DE/WM selection, no display manager, no competing paradigms
+- **Minimal surface** - Only what's needed for dream space operation
+
+### Agentic Installation
+
+The remaining installation complexity dissolves through AI assistance. An LLM can:
+- Detect hardware (`lspci`, `lsblk`)
+- Make sensible partitioning decisions
+- Execute the installation sequence
+- Troubleshoot errors in real-time
+- Adapt to whatever machine it encounters
+
+The rite of passage becomes: your AI installed it for you. Voice-guided setup on any hardware.
+
 ## Technical Foundation
 
 ### Bootstrapping Pattern
