@@ -78,6 +78,64 @@ The remaining installation complexity dissolves through AI assistance. An LLM ca
 
 The rite of passage becomes: your AI installed it for you. Voice-guided setup on any hardware.
 
+### Installation Tool Vision
+
+A Windows-based preparation tool that makes Arch installation accessible to average users:
+
+**Phase 1: Hardware Scan (on Windows)**
+- Query all hardware: CPU, GPU, WiFi chipset, disk layout, UEFI/Secure Boot status
+- Generate a "hardware manifest" JSON
+- Identify required drivers and kernel modules before leaving Windows
+
+**Phase 2: User Configuration**
+- WiFi credentials (stored locally, baked into custom ISO)
+- Installation type: Dual Boot (keep Windows) or Full Install
+- Disk space allocation for DreamOS
+
+**Phase 3: Custom ISO Generation**
+- Modify base Arch ISO with hardware-specific drivers
+- Inject WiFi auto-connect script
+- Enable SSH with beacon for remote coordination
+- Include DreamOS installer agent
+
+**Phase 4: Guided Installation**
+- Reboot into custom ISO
+- Auto-connect to WiFi, establish communication channel
+- AI agent executes installation via SSH or locally
+- User monitors progress via phone/secondary device
+- Handle dual-boot bootloader configuration automatically
+
+**The Dual Boot Demonstration**
+
+Dual boot serves as a powerful demonstration of hardware liberation:
+- Windows 11 boot: 30-90 seconds, then bloatware loading
+- DreamOS/Arch boot: 3-5 seconds to login prompt
+
+Users experience firsthand what their hardware is actually capable of without corporate bloatware.
+
+### AI Installation Benchmark
+
+The Arch installation process serves as a benchmark for AI agent capabilities:
+
+| Capability | Test |
+|------------|------|
+| Hardware detection | Can AI scan and interpret hardware manifest? |
+| Partition planning | Can AI safely resize Windows and create Linux partitions? |
+| Dual-boot configuration | Can AI install bootloader without breaking Windows? |
+| Driver selection | Can AI identify correct drivers for detected hardware? |
+| Error recovery | Can AI troubleshoot and recover from unexpected states? |
+| Network configuration | Can AI handle WiFi setup across different chipsets? |
+
+**Communication Phases During Installation:**
+
+1. **Windows** - Full connectivity, AI fully available
+2. **BIOS/UEFI** - Zero connectivity (pre-document steps per hardware)
+3. **Arch Live Boot** - No network initially
+4. **WiFi Connected** - SSH bridge established, AI regains control
+5. **Post-Install Reboot** - Brief gap, then SSH resumes if configured
+
+The goal: minimize the "dark zones" where users have no AI assistance, ideally reducing it to a single BIOS configuration step that can be pre-documented or automated.
+
 ## Technical Foundation
 
 ### Bootstrapping Pattern
