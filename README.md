@@ -10,10 +10,22 @@ The complete reimagining of the operating system paradigm - where your screen be
 | File explorer | Dream explorer |
 | App launcher | Dream launcher |
 | Applications | DreamNodes with unified knowledge + tools |
+| Browsing a website | Cloning a repository - you acquire, not visit |
 
 ## Architecture Vision
 
 A minimal Linux distribution running one primary system: the dream space. No bureaucratic tools, no traditional text editors needed. UIs become optional, generated on demand by AI.
+
+### Unix Philosophy Revival
+
+DreamOS returns to the elegance of Unix and Plan 9:
+
+- **Everything is a file** - All state lives in the filesystem, GUI is a view into it
+- **CLI as truth layer** - Every meaningful action is a CLI command
+- **GUI as thin membrane** - Captures gestures, invokes CLI, renders output. No computation in JavaScript.
+- **Composable via pipes** - DreamNodes chain together like Unix tools
+
+The browser rendering stack (CSS, animations, Three.js) handles presentation. Tauri translates gestures to CLI invocations. Actual work happens in Unix tools.
 
 ### Primary Interface: Speech-to-Dream
 
@@ -138,13 +150,35 @@ The goal: minimize the "dark zones" where users have no AI assistance, ideally r
 
 ## Technical Foundation
 
+### DreamNode Structure
+
+Every DreamNode is an atomic unit containing:
+
+```
+dreamnode/
+├── dreamnode.toml        # Metadata, dependencies
+├── symbol.svg            # DreamTalk visual - the icon IS the interface
+├── cli/                  # Unix tool - the actual computation
+└── ui/                   # Optional thin wrapper for custom presentation
+```
+
+Interaction model: **drag-drop onto symbol → CLI invocation → output display**. The symbol is the app. Importing a DreamNode as submodule imports its functionality.
+
 ### Bootstrapping Pattern
 
 DreamOS installation from a DreamNode clones itself into a monorepo it creates - fully self-referential. Every component is a DreamNode, including DreamOS itself.
 
-### Deduplication via Git LFS
+### Transport Layer: Git + BitTorrent
 
-Large files (videos, assets) deduplicate across submodules through Git LFS backend. Same file in different submodule versions points to same LFS object. Aggressive thresholds keep the system lightweight.
+Large files distribute via decentralized Git LFS:
+
+- **Git tracks pointers** - lightweight references (sha256 oid + size) in commit history
+- **BitTorrent delivers bytes** - custom LFS transfer agent speaks BitTorrent instead of HTTP
+- **DHT for discovery** - content-addressed lookup, no central server
+- **Streaming support** - sequential piece download enables video playback during transfer
+- **Organic swarm growth** - each clone becomes a seeder
+
+Same file across DreamNodes deduplicates naturally - identical sha256 means identical swarm.
 
 ### Dynamic Tool Inheritance
 
