@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DreamOS - DreamSong</title>
+  <meta name="description" content="DreamSong from InterBrain - A decentralized knowledge management system">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background: #000000;
+      color: #ffffff;
+      min-height: 100vh;
+      overflow-y: scroll;
+    }
+
+    #root {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      gap: 20px;
+    }
+
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(255, 255, 255, 0.1);
+      border-top-color: #ffffff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .footer {
+      margin-top: auto;
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+      background: #000000;
+    }
+
+    .footer a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .footer a:hover {
+      opacity: 0.8;
+    }
+  </style>
+  <script type="module" crossorigin src="./assets/main-B_0JjRkl.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-hpMK7THx.css">
+</head>
+<body>
+  <div id="root">
+    <div class="loading">
+      <div class="loading-spinner"></div>
+      <div>Loading DreamSong...</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>
+      Powered by <a href="https://github.com/ProjectLiminality/InterBrain" target="_blank" rel="noopener noreferrer">InterBrain</a>
+      • Part of <a href="https://opencollective.com/projectliminality" target="_blank" rel="noopener noreferrer">Project Liminality</a>
+    </p>
+  </div>
+
+  <!-- DreamSong data will be injected here -->
+  <script id="dreamsong-data" type="application/json">
+    {"dreamNodeName":"DreamOS","dreamNodeId":"02e6694d-2642-43a6-88af-de15624da600","blocks":[{"id":"title","type":"text","text":"<h1>The Frozen Stack</h1>\n<p>Hundreds of millions of laptops sit unused worldwide.</p>\n<p>Too slow for Windows. Too good to throw away.</p>\n"},{"id":"img-ewaste-problem","type":"media-text","media":{"type":"image","src":"./media/frozen-stack.png","alt":"Frozen stack","sourceDreamNodeId":"pitch"},"text":"<p>Corporate OS lifecycles create artificial obsolescence.</p>\n<p>A laptop from 2012 that &quot;can&#39;t run Windows 11&quot; often has perfectly functional hardware.</p>\n<p>It&#39;s the software that failed it.</p>\n","isLeftAligned":true},{"id":"scale","type":"text","text":"<p><strong>The Numbers:</strong></p>\n<ul>\n<li>100-250 million revivable laptops globally</li>\n<li>33% of old laptops kept in household drawers</li>\n<li>Only 10-15% of computer e-waste recycled</li>\n<li>40+ million &quot;obsolete&quot; annually in US alone</li>\n</ul>\n"},{"id":"institutions","type":"text","text":"<p>Schools, NGOs, hospitals, offices—all holding machines that are &quot;too slow to use, too good to throw away.&quot;</p>\n<p>Waiting.</p>\n"},{"id":"unlock","type":"text","text":"<h1>The Key</h1>\n<p>Arch Linux + DreamOS runs faster on a 2012 laptop than Windows 11 runs on 2024 hardware.</p>\n<p><strong>3-5 second boot</strong> vs 30-90 seconds.</p>\n"},{"id":"agentic","type":"text","text":"<p>But performance is just the beginning.</p>\n<p>LLM inference happens in the cloud.</p>\n<p>A revived laptop with internet has <strong>the same AI capabilities</strong> as a new MacBook.</p>\n"},{"id":"img-leapfrog-leapfrog","type":"media-text","media":{"type":"image","src":"./media/leapfrog.png","alt":"Leapfrog","sourceDreamNodeId":"pitch"},"text":"<h1>The Leapfrog</h1>\n<p>The ascending world doesn&#39;t catch up through incremental hardware upgrades.</p>\n<p>It skips straight to the agentic age on hardware the descending world threw away.</p>\n","isLeftAligned":false},{"id":"family","type":"text","text":"<h1>The Family Server</h1>\n<p>One laptop serves an entire household:</p>\n<ul>\n<li>Parents run the server</li>\n<li>Children connect via smartphones</li>\n<li>Data stays in the family</li>\n<li>Network of families, not isolated consumers</li>\n</ul>\n"},{"id":"img-family-multiplier","type":"media-text","media":{"type":"image","src":"./media/family-server.png","alt":"Family server","sourceDreamNodeId":"pitch"},"text":"<p>In the ascending world:</p>\n<ul>\n<li>Average household: 5-6 people</li>\n<li>Strong extended family networks</li>\n<li><strong>One laptop = 10-20 people</strong> connected to AI</li>\n</ul>\n<p>The math changes everything.</p>\n","isLeftAligned":true},{"id":"distribution","type":"text","text":"<h1>Viral Distribution</h1>\n<p>DreamOS spreads via USB stick.</p>\n"},{"id":"img-usb-distribution2","type":"media-text","media":{"type":"image","src":"./media/viral-usb.png","alt":"Viral usb","sourceDreamNodeId":"pitch"},"text":"<ul>\n<li>No internet needed for installation</li>\n<li>Every machine creates more installation media</li>\n<li>AI handles technical complexity</li>\n<li>Peer-to-peer. Unstoppable.</li>\n</ul>\n","isLeftAligned":false},{"id":"immunity","type":"text","text":"<p>x86 hardware cannot be remotely locked down.</p>\n<p><strong>The cat is out of the bag.</strong></p>\n<p>Every laptop made in the last 20 years can run Linux. Billions of devices. Physically impossible to recall.</p>\n"},{"id":"saturation","type":"text","text":"<h1>Saturation is Achievable</h1>\n<p><strong>Target:</strong> 1.2 billion households</p>\n<p><strong>Supply:</strong> 100-250 million frozen laptops × hub multipliers</p>\n<p><strong>Result:</strong> The stack is already sufficient.</p>\n"},{"id":"bottleneck","type":"text","text":"<p>The bottleneck was never hardware.</p>\n<p>It was <strong>activation</strong>.</p>\n<p>DreamOS is the key.</p>\n"},{"id":"value","type":"text","text":"<h1>The Gift</h1>\n<ul>\n<li>Hardware unlocked: <strong>$22-30 billion</strong></li>\n<li>4 billion people with agentic computing</li>\n<li>Not incremental improvement</li>\n<li><strong>Categorical change</strong></li>\n</ul>\n"},{"id":"closing","type":"text","text":"<p>The ascending world has been waiting for permission to join the digital age.</p>\n<p>The permission was always there.</p>\n<p><strong>It was just frozen.</strong></p>\n"}],"linkResolver":{"githubPagesUrls":{},"githubRepoUrls":{},"radicleIds":{}}}
+  </script>
+
+</body>
+</html>
