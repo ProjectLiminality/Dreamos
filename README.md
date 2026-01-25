@@ -148,6 +148,46 @@ The Arch installation process serves as a benchmark for AI agent capabilities:
 
 The goal: minimize the "dark zones" where users have no AI assistance, ideally reducing it to a single BIOS configuration step that can be pre-documented or automated.
 
+## Global Hardware Liberation
+
+The standalone Arch distribution unlocks a latent global resource: hundreds of millions of functional laptops rendered "unusable" by OS bloat.
+
+### The Frozen Stack
+
+Corporate OS lifecycles create artificial obsolescence. A laptop that can't run Windows 11 smoothly often runs Arch + DreamOS faster than new hardware runs Windows. This means:
+
+- Institutional storage (schools, NGOs, offices) holds vast quantities of "too slow to use, too good to throw away" machines
+- Household drawers worldwide contain forgotten laptops awaiting revival
+- E-waste streams include functional hardware that simply couldn't keep up with bloat
+
+These machines aren't broken. They're frozen - waiting for software that respects their capabilities.
+
+### The Family Server Model
+
+One revived laptop serves an entire household:
+
+- Parents operate the family server (headless or with display)
+- Children and extended family connect via smartphones
+- Data stays in the family, not extracted by corporations
+- The network becomes families connected to families, not isolated individuals
+
+In the ascending world, where household sizes average 5-6 people and extended family networks remain strong, one laptop activation can mean 10-20 people gaining access to agentic computing.
+
+### Viral Distribution
+
+DreamOS spreads peer-to-peer via USB stick:
+
+- No internet required for installation itself
+- Every activated machine can create more installation media
+- Technical knowledge not required - the AI handles hardware-specific complexity
+- Once in circulation, unstoppable - x86 hardware cannot be remotely locked down
+
+The bottleneck for global digital inclusion has never been hardware. It's been activation. DreamOS is the key.
+
+### The Agentic Leapfrog
+
+LLM inference happens in the cloud. A 2012 laptop with network connectivity accesses the same AI capabilities as a 2024 MacBook. The ascending world doesn't need to catch up through incremental hardware upgrades - it can leapfrog directly into the agentic age on hardware the descending world discarded.
+
 ## Technical Foundation
 
 ### DreamNode Structure
