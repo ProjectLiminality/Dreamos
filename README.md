@@ -27,6 +27,38 @@ DreamOS returns to the elegance of Unix and Plan 9:
 
 The browser rendering stack (CSS, animations, Three.js) handles presentation. Tauri translates gestures to CLI invocations. Actual work happens in Unix tools.
 
+### Plan 9 Extension: Runtime State as Files
+
+Plan 9 took Unix's "everything is a file" further - exposing memory, process state, and network connections through the file system. DreamOS adopts this via FUSE (Filesystem in Userspace), requiring no kernel modification.
+
+Each DreamNode exposes runtime state in a `.state/` directory:
+
+```
+DreamNode/
+├── README.md           # What it is
+├── cli/                # What it does
+├── .state/             # What it's doing right now (gitignored)
+│   ├── errors          # Runtime errors
+│   ├── status          # Current state
+│   └── [app-specific]  # Whatever state matters
+```
+
+**Agent debuggability**: An AI debugging a broken app runs `cat /App/.state/errors` - no special protocols, no Chrome DevTools, no MCP bridges. Just files.
+
+### CLI as Universal API (MCP Obsolescence)
+
+MCP (Model Context Protocol) exists to make APIs self-describing for AI agents. But the CLI already is that:
+- `ffmpeg --help` describes itself
+- `man ffmpeg` goes deeper
+- The README describes intent
+
+MCP solves a problem that only exists because we departed from Unix simplicity. In DreamOS:
+- Every capability is a CLI command
+- Every DreamNode has a README describing its use
+- Agents read files and run commands - nothing else needed
+
+The pattern: clone a DreamNode, read its README, invoke its CLI. Solved once, kept forever. No subscriptions, no API limits, no "service discontinued."
+
 ### Primary Interface: Speech-to-Dream
 
 Voice your will, and AI agents execute. The keyboard and mouse become secondary - used only when inspecting or making precise adjustments to generated outputs.
