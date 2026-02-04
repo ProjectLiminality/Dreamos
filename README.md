@@ -1,20 +1,157 @@
 # DreamOS
 
-The complete reimagining of the operating system paradigm - where your screen becomes a scrying mirror and speech-to-dream is the primary interface.
+The grand unification of all meaningful dimensions of the digital into one coherent, tightly integrated system. A complete refactoring of the digital into something ergonomic to the human mind and organic to the social sphere.
 
-## Core Transformation
+## The Fundamental Property
 
-| Traditional OS | DreamOS |
-|----------------|---------|
+**Every DreamNode is a place you can meet people.**
+
+Not "some apps have multiplayer." Not "here's a special collaborative document." Every unit of the system - by default - is a place where you can invite friends.
+
+```
+macOS window buttons:    [🔴 Close] [🟡 Minimize] [🟢 Maximize]
+DreamOS window buttons:  [🔴 Close] [🟡 Minimize] [🟢 Maximize] [👥 Invite]
+```
+
+## The Ontological Inversion
+
+| Traditional Digital | DreamOS |
+|---------------------|---------|
 | File system | Dream system |
 | File explorer | Dream explorer |
-| App launcher | Dream launcher |
-| Applications | DreamNodes with unified knowledge + tools |
 | Browsing a website | Cloning a repository - you acquire, not visit |
+| Browse alone, some sites collaborate | Every place is multiplayer by default |
+| Apps isolated, some have lobbies | Every app is a potential lobby |
+| Video calls in meta-space | Video calls *inside* meaningful contexts |
+| "Here's a group, let me explain" | The place IS the introduction |
+
+**The context carries the semantic meaning of why you're together.** You don't introduce people and then explain - you invite them into a story you've woven.
+
+## The Ownership Inversion: You Cannot Visit Without Owning
+
+This may be the deepest novelty of DreamOS.
+
+### Current Web Architecture
+
+```
+┌─────────────────────────────────────────┐
+│           Corporate Server              │
+│    (Miro, Google, Figma, etc.)          │
+│                                         │
+│    The "place" lives HERE               │
+│    You are a GUEST                      │
+└───────────┬─────────────┬───────────────┘
+            │             │
+      ┌─────▼─────┐ ┌─────▼─────┐
+      │  Alice    │ │   Bob     │
+      │ (client)  │ │ (client)  │
+      │  guest    │ │  guest    │
+      └───────────┘ └───────────┘
+```
+
+### DreamOS Architecture
+
+```
+┌─────────────────┐         ┌─────────────────┐
+│     Alice       │         │      Bob        │
+│                 │         │                 │
+│  ┌───────────┐  │  sync   │  ┌───────────┐  │
+│  │ DreamNode │◄─┼─────────┼─►│ DreamNode │  │
+│  │ (owned)   │  │  Yjs    │  │ (owned)   │  │
+│  └───────────┘  │ actions │  └───────────┘  │
+│                 │         │                 │
+│  Full source    │         │  Full source    │
+│  Full history   │         │  Full history   │
+│  Full agency    │         │  Full agency    │
+└─────────────────┘         └─────────────────┘
+```
+
+**You cannot visit a place without owning it.**
+
+The moment you join, you clone the full DreamNode:
+- Complete source (not just rendered output)
+- Full git history (every change ever made)
+- Sovereign ownership (it's YOUR copy now)
+
+What syncs is tiny: cursor positions, CRDT operations, presence. The place itself lives in each person's machine. You're not streaming a world from a server - you're both in your own worlds, with a tiny synchronization layer making them coherent.
+
+### The Metaphysical Coherence
+
+This mirrors how reality actually works:
+
+**Incoherent model** (current web):
+- One entity "hosts" reality
+- Others are guests in someone else's dream
+- The world exists "out there" on a server
+
+**Coherent model** (DreamOS):
+- Each participant contains the full context
+- The place exists in every dreamer's mind
+- Meeting = synchronizing sovereign realities
+
+The holographic principle applied to the digital: every part contains the whole. No "master copy" - all copies are real. DreamOS makes the digital match the noetic.
+
+## Places and Topology
+
+A DreamNode is a place. Places connect:
+- **Horizontally**: Liminal web (sociocratic, peer relationships)
+- **Vertically**: Holarchy (submodule containment)
+
+You can:
+1. Visit a place alone (monologos - async appreciation)
+2. Meet others there (dialogos - synchronous presence)
+3. Travel together through the holarchy
+4. Introduce friends to each other *in* a meaningful context
+
+## The Evolution Path
+
+Each step is exciting standalone. Together, unprecedented.
+
+### Stage 1: Canvas Dreamweaving (NOW)
+- Shared canvas for connecting DreamTalks
+- Single-player, async collaboration via git
+- Already implemented in InterBrain
+
+### Stage 2: Multiplayer Canvas (NEXT)
+- Real-time CRDT sync (Yjs)
+- Shared cursors, voice chat
+- Meet in a DreamNode, dreamweave together
+
+### Stage 3: Iframe Embedding
+- Turn any website into a DreamNode
+- Browse the existing web from within DreamOS
+- Meet friends and browse together
+
+### Stage 4: Interactive DreamSongs
+- DreamSong evolves from linear canvas to interactive UI
+- Voice-driven AI builds interfaces
+- The back of a DreamNode becomes a full application
+
+### Stage 5: Universal Multiplayer
+- Every DreamNode is a potential lobby
+- The social button is everywhere
+
+## The Iframe Bridge
+
+We don't need to rebuild the web - we can *contain* it:
+
+```
+┌─────────────────────────────────────────┐
+│           DreamNode: DPI Archive         │
+│  ┌───────────────────────────────────┐  │
+│  │   <iframe src="dpi-archive.org">  │  │
+│  │      Existing website rendered    │  │
+│  └───────────────────────────────────┘  │
+│  [Alice 🖱️]  [Bob 🖱️]  [AURYN 🤖]       │
+│  Two cursors, voice chat, AI copilot    │
+└─────────────────────────────────────────┘
+```
+
+Existing websites become DreamNodes. Multiplayer comes from the DreamOS layer, not the site itself.
 
 ## Architecture Vision
 
-A minimal Linux distribution running one primary system: the dream space. No bureaucratic tools, no traditional text editors needed. UIs become optional, generated on demand by AI.
+A minimal system where your screen becomes a scrying mirror and speech-to-dream is the primary interface.
 
 ### Unix Philosophy Revival
 
@@ -22,14 +159,14 @@ DreamOS returns to the elegance of Unix and Plan 9:
 
 - **Everything is a file** - All state lives in the filesystem, GUI is a view into it
 - **CLI as truth layer** - Every meaningful action is a CLI command
-- **GUI as thin membrane** - Captures gestures, invokes CLI, renders output. No computation in JavaScript.
+- **GUI as thin membrane** - Captures gestures, invokes CLI, renders output
 - **Composable via pipes** - DreamNodes chain together like Unix tools
 
 The browser rendering stack (CSS, animations, Three.js) handles presentation. Tauri translates gestures to CLI invocations. Actual work happens in Unix tools.
 
 ### Plan 9 Extension: Runtime State as Files
 
-Plan 9 took Unix's "everything is a file" further - exposing memory, process state, and network connections through the file system. DreamOS adopts this via FUSE (Filesystem in Userspace), requiring no kernel modification.
+Plan 9 took Unix's "everything is a file" further - exposing memory, process state, and network connections through the file system. DreamOS adopts this via FUSE.
 
 Each DreamNode exposes runtime state in a `.state/` directory:
 
@@ -43,25 +180,20 @@ DreamNode/
 │   └── [app-specific]  # Whatever state matters
 ```
 
-**Agent debuggability**: An AI debugging a broken app runs `cat /App/.state/errors` - no special protocols, no Chrome DevTools, no MCP bridges. Just files.
+**Agent debuggability**: An AI debugging a broken app runs `cat /App/.state/errors` - no special protocols, just files.
 
 ### CLI as Universal API (MCP Obsolescence)
 
-MCP (Model Context Protocol) exists to make APIs self-describing for AI agents. But the CLI already is that:
+MCP exists to make APIs self-describing for AI. But CLI already is that:
 - `ffmpeg --help` describes itself
 - `man ffmpeg` goes deeper
 - The README describes intent
-
-MCP solves a problem that only exists because we departed from Unix simplicity. In DreamOS:
-- Every capability is a CLI command
-- Every DreamNode has a README describing its use
-- Agents read files and run commands - nothing else needed
 
 The pattern: clone a DreamNode, read its README, invoke its CLI. Solved once, kept forever. No subscriptions, no API limits, no "service discontinued."
 
 ### Primary Interface: Speech-to-Dream
 
-Voice your will, and AI agents execute. The keyboard and mouse become secondary - used only when inspecting or making precise adjustments to generated outputs.
+Voice your will, AI agents execute. Keyboard and mouse become secondary - used only when inspecting or making precise adjustments.
 
 ### Headless by Default
 
@@ -71,11 +203,42 @@ Most interactions happen through AURYN orchestrating AI agents. You kick things 
 
 The user directory becomes a monorepo containing your digital interior. Everything meaningful lives there, populated by DreamNodes. The folder with your name IS you, digitally.
 
-macOS scatters this simplicity: Applications folder, iCloud sync, hidden Library with cache files. DreamOS reclaims elegant unity - if an app produces cache, it lives in that DreamNode's repo, not scattered system directories. Dream Explorer shows only your monorepo; system internals remain accessible via terminal but hidden from GUI.
+### Light and Shadow: The Intentionality Boundary
+
+Not everything belongs in the user directory. The principle: **does a human or AI agent ever intentionally invoke this by name?**
+
+**The Light** (user directory as DreamNodes):
+- File spirits: `cat`, `ls`, `cp`, `mv`, `rm`
+- Search spirits: `grep`, `find`, `which`
+- Network spirits: `curl`, `wget`, `ssh`
+- Media spirits: `ffmpeg`, `imagemagick`
+- Version spirit: `git`
+
+These are beings you summon by name. They deserve READMEs, symbols, source code.
+
+**The Shadow** (kernel, drivers, plumbing):
+- Memory management, process scheduling
+- GPU drivers, WiFi chipset code
+- Filesystem internals, dynamic linker
+
+Infrastructure that serves without being addressed. Hidden like your autonomic nervous system.
+
+### Unix Tools as DreamNodes
+
+```
+~/cat/
+├── README.md     # "Cat reads files and outputs their contents."
+├── symbol.svg    # Visual representation
+├── .udd          # UUID, relationships
+├── src/          # Source code
+└── bin/          # Compiled binary
+```
+
+Now `cat` isn't a mystery - it's a digital spirit in your collection. Grandma's recipe and `curl` exist as peers in the same ocean of DreamNodes. Some are processes (verbs), some are substances (nouns), some are people (dreamers). All sovereign beings in your digital world.
 
 ## Cloud Without Centralization
 
-iCloud vs local distinction dissolves. DreamNodes have cloud-like properties via:
+iCloud vs local distinction dissolves:
 - **Git history**: Accidental deletion recoverable
 - **Radicle remotes**: Decentralized P2P mirroring through liminal web
 - **No corporate dependency**: Your friends hold your data, not Apple/Google
@@ -86,155 +249,68 @@ You couldn't ever lose important things because they're held in your network.
 
 Everything local by default - no internet needed. But signal to friends you're "here" in a DreamNode context, and they can hop in. Not binary (private vs public with strangers) but gradual (private → friends can join).
 
-**Holochain SYNC** or similar: decentralized real-time collaboration. Everyone interacts with their version; meaningful changes become git commits via LLM intelligence. Transient actions (mouse movements) forgotten, meaningful actions (text edits) persist.
+Everyone interacts with their version; meaningful changes become git commits via LLM intelligence. Transient actions (mouse movements) forgotten, meaningful actions (text edits) persist.
+
+## The Social Graph Underneath
+
+All of this rests on the liminal web:
+- You don't meet strangers
+- You deepen relationships with people you know
+- Friends introduce you to their friends
+- Trust propagates through the network
+
+When you "browse together," it's with your actual social graph, in contexts that matter.
 
 ## Platform Strategy
 
-### Dual Distribution Model
+### Dual Distribution
 
-DreamOS exists in two forms:
+1. **Application Ecosystem** - Runs on any existing OS (macOS, Windows, Linux)
+2. **Standalone Linux** - Runs directly on hardware via Arch Linux
 
-1. **Application Ecosystem** - Runs on any existing OS (macOS, Windows, Linux). The portable layer that works everywhere.
-
-2. **Standalone Linux** - Runs directly on hardware via Arch Linux. Maximum performance, minimal overhead.
-
-The standalone version is the pure expression - no legacy OS cruft between you and the dream space.
+The standalone version is the pure expression - no legacy OS cruft.
 
 ### Why Arch Linux
 
-Arch provides the minimal foundation: kernel, systemd, networking, audio (pipewire), GPU drivers. Nothing more. No desktop environment debates, no conflicting display managers, no preinstalled bloat.
+Arch provides minimal foundation: kernel, systemd, networking, audio, GPU drivers. Nothing more.
 
-Traditional Arch installation is notoriously difficult - manual partitioning, bootloader configuration, hardware-specific decisions with no GUI assistance. This "rite of passage" exists because Arch refuses to make choices for you.
-
-DreamOS simplifies this dramatically:
-- **Single UI runtime** - One Tauri instance handles all visual interfaces
-- **Collapsed choices** - No DE/WM selection, no display manager, no competing paradigms
-- **Minimal surface** - Only what's needed for dream space operation
+DreamOS simplifies dramatically:
+- Single UI runtime (one Tauri instance)
+- Collapsed choices (no DE/WM selection)
+- Minimal surface
 
 ### Agentic Installation
 
-The remaining installation complexity dissolves through AI assistance. An LLM can:
-- Detect hardware (`lspci`, `lsblk`)
-- Make sensible partitioning decisions
-- Execute the installation sequence
-- Troubleshoot errors in real-time
-- Adapt to whatever machine it encounters
+AI can detect hardware, make partitioning decisions, execute installation, troubleshoot errors. Voice-guided setup on any hardware.
 
-The rite of passage becomes: your AI installed it for you. Voice-guided setup on any hardware.
+**Installation phases**: Hardware scan on Windows → User configuration → Custom ISO generation → Guided installation via AI.
 
-### Installation Tool Vision
+**The Dual Boot Demonstration**: Windows 11 boot: 30-90 seconds. DreamOS/Arch boot: 3-5 seconds. Users experience what their hardware is actually capable of.
 
-A Windows-based preparation tool that makes Arch installation accessible to average users:
+### Global Hardware Liberation
 
-**Phase 1: Hardware Scan (on Windows)**
-- Query all hardware: CPU, GPU, WiFi chipset, disk layout, UEFI/Secure Boot status
-- Generate a "hardware manifest" JSON
-- Identify required drivers and kernel modules before leaving Windows
+The standalone Arch distribution unlocks hundreds of millions of functional laptops rendered "unusable" by OS bloat. A 2012 laptop with network connectivity accesses the same AI capabilities as a 2024 MacBook.
 
-**Phase 2: User Configuration**
-- WiFi credentials (stored locally, baked into custom ISO)
-- Installation type: Dual Boot (keep Windows) or Full Install
-- Disk space allocation for DreamOS
+**The Family Server Model**: One revived laptop serves an entire household. Data stays in the family, not extracted by corporations.
 
-**Phase 3: Custom ISO Generation**
-- Modify base Arch ISO with hardware-specific drivers
-- Inject WiFi auto-connect script
-- Enable SSH with beacon for remote coordination
-- Include DreamOS installer agent
+**Viral Distribution**: DreamOS spreads peer-to-peer via USB stick. Every activated machine can create more installation media. Once in circulation, unstoppable.
 
-**Phase 4: Guided Installation**
-- Reboot into custom ISO
-- Auto-connect to WiFi, establish communication channel
-- AI agent executes installation via SSH or locally
-- User monitors progress via phone/secondary device
-- Handle dual-boot bootloader configuration automatically
-
-**The Dual Boot Demonstration**
-
-Dual boot serves as a powerful demonstration of hardware liberation:
-- Windows 11 boot: 30-90 seconds, then bloatware loading
-- DreamOS/Arch boot: 3-5 seconds to login prompt
-
-Users experience firsthand what their hardware is actually capable of without corporate bloatware.
-
-### AI Installation Benchmark
-
-The Arch installation process serves as a benchmark for AI agent capabilities:
-
-| Capability | Test |
-|------------|------|
-| Hardware detection | Can AI scan and interpret hardware manifest? |
-| Partition planning | Can AI safely resize Windows and create Linux partitions? |
-| Dual-boot configuration | Can AI install bootloader without breaking Windows? |
-| Driver selection | Can AI identify correct drivers for detected hardware? |
-| Error recovery | Can AI troubleshoot and recover from unexpected states? |
-| Network configuration | Can AI handle WiFi setup across different chipsets? |
-
-**Communication Phases During Installation:**
-
-1. **Windows** - Full connectivity, AI fully available
-2. **BIOS/UEFI** - Zero connectivity (pre-document steps per hardware)
-3. **Arch Live Boot** - No network initially
-4. **WiFi Connected** - SSH bridge established, AI regains control
-5. **Post-Install Reboot** - Brief gap, then SSH resumes if configured
-
-The goal: minimize the "dark zones" where users have no AI assistance, ideally reducing it to a single BIOS configuration step that can be pre-documented or automated.
-
-## Global Hardware Liberation
-
-The standalone Arch distribution unlocks a latent global resource: hundreds of millions of functional laptops rendered "unusable" by OS bloat.
-
-### The Frozen Stack
-
-Corporate OS lifecycles create artificial obsolescence. A laptop that can't run Windows 11 smoothly often runs Arch + DreamOS faster than new hardware runs Windows. This means:
-
-- Institutional storage (schools, NGOs, offices) holds vast quantities of "too slow to use, too good to throw away" machines
-- Household drawers worldwide contain forgotten laptops awaiting revival
-- E-waste streams include functional hardware that simply couldn't keep up with bloat
-
-These machines aren't broken. They're frozen - waiting for software that respects their capabilities.
-
-### The Family Server Model
-
-One revived laptop serves an entire household:
-
-- Parents operate the family server (headless or with display)
-- Children and extended family connect via smartphones
-- Data stays in the family, not extracted by corporations
-- The network becomes families connected to families, not isolated individuals
-
-In the ascending world, where household sizes average 5-6 people and extended family networks remain strong, one laptop activation can mean 10-20 people gaining access to agentic computing.
-
-### Viral Distribution
-
-DreamOS spreads peer-to-peer via USB stick:
-
-- No internet required for installation itself
-- Every activated machine can create more installation media
-- Technical knowledge not required - the AI handles hardware-specific complexity
-- Once in circulation, unstoppable - x86 hardware cannot be remotely locked down
-
-The bottleneck for global digital inclusion has never been hardware. It's been activation. DreamOS is the key.
-
-### The Agentic Leapfrog
-
-LLM inference happens in the cloud. A 2012 laptop with network connectivity accesses the same AI capabilities as a 2024 MacBook. The ascending world doesn't need to catch up through incremental hardware upgrades - it can leapfrog directly into the agentic age on hardware the descending world discarded.
+**The Agentic Leapfrog**: The ascending world doesn't need incremental hardware upgrades - it can leapfrog directly into the agentic age on hardware the descending world discarded.
 
 ## Technical Foundation
 
 ### DreamNode Structure
 
-Every DreamNode is an atomic unit containing:
-
 ```
 dreamnode/
-├── dreamnode.toml        # Metadata, dependencies
-├── symbol.svg            # DreamTalk visual - the icon IS the interface
+├── README.md             # What it is (for humans and AI)
+├── symbol.svg            # DreamTalk visual
 ├── cli/                  # Unix tool - the actual computation
-└── ui/                   # Optional thin wrapper for custom presentation
+├── ui/                   # Optional thin wrapper
+└── .udd                  # UUID, type, relationships
 ```
 
-Interaction model: **drag-drop onto symbol → CLI invocation → output display**. The symbol is the app. Importing a DreamNode as submodule imports its functionality.
+Interaction model: **drag-drop onto symbol → CLI invocation → output display**. The symbol is the app.
 
 ### Bootstrapping Pattern
 
@@ -243,25 +319,41 @@ DreamOS installation from a DreamNode clones itself into a monorepo it creates -
 ### Transport Layer: Git + BitTorrent
 
 Large files distribute via decentralized Git LFS:
+- Git tracks pointers (sha256 oid + size)
+- BitTorrent delivers bytes
+- DHT for discovery
+- Streaming support for video playback during transfer
+- Organic swarm growth - each clone becomes a seeder
 
-- **Git tracks pointers** - lightweight references (sha256 oid + size) in commit history
-- **BitTorrent delivers bytes** - custom LFS transfer agent speaks BitTorrent instead of HTTP
-- **DHT for discovery** - content-addressed lookup, no central server
-- **Streaming support** - sequential piece download enables video playback during transfer
-- **Organic swarm growth** - each clone becomes a seeder
+### CRDT-Enabled Multiplayer
 
-Same file across DreamNodes deduplicates naturally - identical sha256 means identical swarm.
+CRDTs (Conflict-free Replicated Data Types) allow:
+- No central authority needed
+- Operations merge deterministically
+- Each copy is authoritative
+- Eventual consistency guaranteed
+
+Yjs is battle-tested at scale. For small groups (the liminal web's trust network), performance considerations are negligible.
 
 ### Dynamic Tool Inheritance
 
-DreamNodes pulled in via semantic search can dynamically contribute their MCP tools to the active context. File path based MCP loading with consistent `mcp.json` at root convention.
+DreamNodes pulled in via semantic search contribute their CLI tools to the active context. Importing a DreamNode as submodule adds its tools to your PATH.
 
-## Security Considerations
+## The Profound Implication
 
-Leaving the entire traditional OS paradigm opens opportunity for ground-up security design. Minimal attack surface - only what's needed for dream space operation.
+Every app in your operating system becomes a potential meeting place.
+
+Not "let me screen share while we're on a call."
+Not "let me send you a link to this collaborative tool."
+
+Just: "I'm in this place. Want to join me?"
+
+The digital finally becomes *spatial* the way physical reality is. This is what the metaverse was supposed to be - but emerging from meaningful contexts (your actual ideas, your actual relationships) rather than empty 3D spaces waiting to be filled.
 
 ## Related
 
 - **InterBrain** - The Obsidian plugin foundation
-- **AURYN** - The MCP meta-interface
+- **AURYN** - The agentic layer, template, CLI tools
+- **Collective-Dreamweaving** - The dialogos layer (multiplayer)
+- **InterBrain Mobile** - Thin client for joining
 - **Software Gardening** - The development philosophy
