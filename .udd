@@ -2,7 +2,7 @@
   "uuid": "02e6694d-2642-43a6-88af-de15624da600",
   "title": "DreamOS",
   "type": "dream",
-  "dreamTalk": "",
+  "dreamTalk": "DreamOS.png",
   "submodules": [],
   "supermodules": [],
   "githubRepoUrl": "https://github.com/ProjectLiminality/Dreamos",
