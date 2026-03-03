@@ -122,10 +122,14 @@ Each step is exciting standalone. Together, unprecedented.
 - Browse the existing web from within DreamOS
 - Meet friends and browse together
 
-### Stage 4: Interactive DreamSongs
-- DreamSong evolves from linear canvas to interactive UI
+### Stage 4: Interactive DreamSongs (DreamTalk as UI)
+- DreamSong evolves from linear canvas to interactive 3D UI
+- DreamTalk renderer (wgpu + Vello) replaces browser-based rendering entirely
+- 3D is default, 2D is the edge case (orthographic camera, z=0 plane)
+- Tiling window management = layout containers (same code for OS-level and in-app layout)
 - Voice-driven AI builds interfaces
 - The back of a DreamNode becomes a full application
+- A "video" is just a constrained linear traversal of an interactive scene — pause and fly around at any time
 
 ### Stage 5: Universal Multiplayer
 - Every DreamNode is a potential lobby
@@ -162,7 +166,7 @@ DreamOS returns to the elegance of Unix and Plan 9:
 - **GUI as thin membrane** - Captures gestures, invokes CLI, renders output
 - **Composable via pipes** - DreamNodes chain together like Unix tools
 
-The browser rendering stack (CSS, animations, Three.js) handles presentation. Tauri translates gestures to CLI invocations. Actual work happens in Unix tools.
+DreamTalk's Rust runtime (wgpu + Vello) handles all rendering — native GPU, no browser engine required. Gestures translate to CLI invocations. Actual work happens in Unix tools. The browser is one deployment target (via WASM), not the foundation.
 
 ### Plan 9 Extension: Runtime State as Files
 
@@ -275,9 +279,15 @@ The standalone version is the pure expression - no legacy OS cruft.
 Arch provides minimal foundation: kernel, systemd, networking, audio, GPU drivers. Nothing more.
 
 DreamOS simplifies dramatically:
-- Single UI runtime (one Tauri instance)
-- Collapsed choices (no DE/WM selection)
-- Minimal surface
+- Single UI runtime (DreamTalk renderer: winit + wgpu + Vello — no browser engine, no Tauri, no webview)
+- Collapsed choices (no DE/WM selection — DreamTalk IS the compositor)
+- Minimal surface — the stack is: kernel → Wayland → DreamTalk renderer
+
+The DreamTalk renderer talks directly to the GPU via Metal/Vulkan. A native window, not a wrapped browser. This means:
+- ~20-50MB RAM for the entire UI (vs 200-500MB per Electron/webview window)
+- Zero CPU for idle UI (GPU renders, CPU sleeps)
+- Boot to usable: 3-5 seconds
+- A 2014 laptop with integrated graphics runs DreamOS smoothly — the same hardware that's "unusable" under Windows 11 + Chrome
 
 ### Agentic Installation
 
@@ -299,18 +309,24 @@ The standalone Arch distribution unlocks hundreds of millions of functional lapt
 
 ## Technical Foundation
 
-### DreamNode Structure
+### DreamNode Structure: The Single-File Holon
 
 ```
-dreamnode/
+DreamNode/
 ├── README.md             # What it is (for humans and AI)
-├── symbol.svg            # DreamTalk visual
-├── cli/                  # Unix tool - the actual computation
-├── ui/                   # Optional thin wrapper
-└── .udd                  # UUID, type, relationships
+├── DreamNode.py          # THE file: symbol + logic + CLI + UI — all in one
+├── .udd                  # UUID, type, relationships
+├── assets/               # Binary blobs (models, textures, audio)
+└── submodules/           # Other DreamNodes this one composes
+    ├── DreamTalk/        # Core library
+    └── OtherHolon/       # Sovereign dependency
 ```
 
-Interaction model: **drag-drop onto symbol → CLI invocation → output display**. The symbol is the app.
+**One file per holon.** The `.py` file defines the DreamTalk symbol (visual), the functionality (logic), and the CLI interface (for AI agents and UI routing). GUI for humans, CLI for machines — everything routes through the CLI.
+
+Complexity is managed by **depth, not breadth**: if something grows complex enough to be its own thing, extract it into a submodule (new DreamNode repo). Never split horizontally into sibling files — split vertically into the holarchy.
+
+Interaction model: **click symbol → CLI invocation → output display**. Drag file onto symbol → `python DreamNode.py process <file>`. The symbol IS the app.
 
 ### Bootstrapping Pattern
 
