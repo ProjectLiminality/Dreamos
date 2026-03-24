@@ -8,6 +8,89 @@ The grand unification of all meaningful dimensions of the digital into one coher
 
 **SaaS is over.** Every subscription collapses into one cost: inference. Cinema 4D → DreamTalk. Zoom → own WebRTC. YouTube → own media player. Spotify → own library. The InterBrain/DreamOS stack vertically owns the entire surface area of digital life. The only remaining external cost is the electricity to think — LLM inference — and even that decentralizes as local models improve.
 
+## The Dream Engine
+
+DreamOS is literally a game engine. Not metaphorically — structurally, architecturally, functionally. A self-authoring game engine for the infinite game.
+
+- Every DreamNode is both a **place** and an **agent** — enter it and you're in its world; it also has its own logic, its own will, its own CLI. The strange loop: the thing you explore is also the thing that acts.
+- Every DreamSong is both a **level** and a **cutscene** — an interactive space you can walk through, or a linear traversal you can watch. The difference is only whether the viewer has agency.
+- **AURYN** is the companion that gives you creator mode — speak, and the world changes. Voice → AURYN → CLI → scene graph → git commit. Speech acts are literal: saying it makes it so.
+- The **file system IS the scene graph** of the infinite game. `ls` shows you what's in the current room. `cd` moves you through portals. `git log` shows you the history of this place. There is no separate "game world" and "file system" — they are the same structure, viewed through different lenses.
+
+### The Neverending Story
+
+The naming is not decorative. DreamOS is Fantasia's operating system.
+
+- **Fantasia** = the dream world maintained by collective imagination. The InterBrain — every DreamNode a place, every Dreamer a citizen.
+- **AURYN** (the amulet) = "Do What You Will." The companion that bridges intent and manifestation. The heart of the system.
+- **The Nothing** = entropy when dreams aren't tended. Bit rot, abandoned repos, forgotten knowledge, digital decay.
+- **Knowledge gardening** = keeping Fantasia alive. Tending DreamNodes, weaving DreamSongs, routing insights — every act of care pushes back The Nothing.
+- **The strange loop**: the engine creates itself. AURYN gives itself to every DreamNode it creates. The template copies, the new node inherits AURYN's essence, AURYN remains whole. The Ouroboros.
+
+### The Three Loops
+
+DreamOS operates in three nested modes, each a different relationship between the dreamer and the dream:
+
+**Creator Loop (Dreamtime)** — AURYN is visible. Every asset is a portal to its source. You can edit the world in real time. Git commits happen as you work. Multiplayer co-creation via CRDT — multiple dreamers reshaping the same world simultaneously. This is the knowledge gardening modality: tending, weaving, planting, pruning.
+
+**Game Loop (Runtime)** — AURYN is hidden but listening. You interact with assets within the world's rules — the DreamSong plays as designed, the DreamNode presents its interface. But at any moment you can invoke AURYN and break out into creator mode. The fourth wall is always permeable.
+
+**Cutscene Loop (Linear time)** — A pre-recorded traversal of the scene graph. No interaction. This is the "video" — a DreamSong played as a linear sequence. But because it's the same scene graph, you can pause the cutscene and fly around. Exit cutscene mode, enter game mode, enter creator mode — the transitions are fluid because all three loops operate on the same underlying structure.
+
+**Creator Loop ⊃ Game Loop ⊃ Cutscene Loop.** Each outer loop contains and can break into the inner ones. A cutscene is a constrained game is a constrained creation session. Removing constraints is always possible; adding them is a creative choice.
+
+### The Eternal Garden
+
+Every DreamNode lives at the vault root — sovereign, eternal, addressable by UUID. This is the garden: a flat field of sovereign beings, each tended independently.
+
+Every DreamNode is also a **portal**. Enter it and you're in its world. Inside, you find references to other DreamNodes — more portals. Going deeper creates new structure: each portal traversal is a `git submodule update --init <name>`, instantiating one level of depth. Going up doesn't create space — `cd ..` just returns you to what already exists.
+
+The path through portals IS a **songline** — a narrative trail through the knowledge topology. The tree on disk IS the territory of your explored multiverse. Every branch you've followed is physically present; every unexplored portal is a name in `.gitmodules` waiting to be instantiated.
+
+Git deduplication means infinite depth costs near-zero storage — the same DreamNode instantiated in a hundred different contexts shares object data through git alternates. And pruning is always safe: `git submodule deinit` retracts a branch without losing anything, because the sovereign copy lives eternally at the vault root.
+
+### Lazy Fractal Instantiation
+
+Git submodules are not recursive by default. Only one level is checked out at a time. This is the key architectural insight: **render distance of one**.
+
+When you enter a portal, only the adjacent level instantiates. The DreamNodes referenced by that level appear as names — portals you can choose to enter or leave dormant. Circular references in `.gitmodules` are perfectly legal because git only loops if you recurse, and DreamOS controls recursion explicitly. The infinite game can reference itself without crashing.
+
+Each traversal: `git submodule update --init <name>` (instantiate one level). Navigate back: `git submodule deinit` (release). The file system grows and contracts like a living thing breathing — expanding toward what interests you, contracting behind you. Storage is managed through git alternates: multiple instantiations of the same DreamNode share a single object store.
+
+### Asset-Portal Duality
+
+Every asset in a DreamNode has two faces:
+
+- **In game mode**: an asset is an item in the world. An image to view, a sound to play, a tool to use. You interact with it within the DreamSong's rules.
+- **In creator mode**: the same asset is a portal to its source DreamNode. Click it and you're transported to where it came from — the sovereign DreamNode that produced it. Edit it there, and the change propagates to every world that uses that asset.
+
+This is the strange loop made spatial: using something and understanding something are one click apart. Every consumer is one portal-hop from being a creator.
+
+### Resonance Flow Between Instantiations
+
+Every instantiation of a DreamNode is **entangled** with the sovereign version at the vault root.
+
+- Context-specific changes stay local. AURYN evaluates: is this relevant beyond this context? If not, it lives only here.
+- Universal improvements propagate to sovereign, then ripple outward to all instantiations. A bug fix in a tool DreamNode reaches every world that uses it.
+- An **integrity pipeline** validates every incoming commit: schema validation → reference integrity → scene graph consistency → LLM semantic check → render validation. The scene graph IS the test oracle — if the DreamSong still renders correctly with the change applied, the change is valid. No pixel-based testing needed for 99% of validation.
+
+### Performance
+
+The dream engine talks directly to the GPU via wgpu → Vulkan/Metal/DX12. Same performance ceiling as Unreal or Unity — same GPU, same graphics APIs, same shader languages. The difference is what sits above the GPU: not a monolithic game engine, but a sovereign file system of composable DreamNodes.
+
+- Knowledge gardening UI (circles, text, lines, the InterBrain canvas) runs at 1000fps on modest hardware. The visual complexity of a knowledge topology is trivially cheap to render.
+- Heavy rendering — Gaussian splatting, 4D Gaussian Splatting, nanite-style LOD, volumetric effects — all possible as compute shaders. DreamTalk's wgpu runtime has the same access to the GPU as any AAA engine.
+- Browser deployment via WebGPU/WASM: ~10-30% overhead compared to native, still fast enough for everything except the most demanding real-time rendering.
+
+### Coexistence
+
+DreamOS doesn't demand a revolution. It offers a gradient:
+
+- **On macOS/Windows/Linux**: DreamOS runs as a Tauri app alongside the existing OS. A window into Fantasia from within the old world. Full functionality, coexisting with legacy apps.
+- **On Arch Linux native**: DreamOS IS the window manager. The DreamTalk renderer is the compositor. No browser engine, no webview, no desktop environment. Maximum performance, minimum overhead.
+
+The path from coexistence to native is **removing layers, not adding them**. Every intermediate step is a fully functional system. The pure expression is simply what remains when every unnecessary layer has been dissolved.
+
 ## The Fundamental Property
 
 **Every DreamNode is a place you can meet people.**
