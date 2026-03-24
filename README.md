@@ -2,11 +2,17 @@
 
 The grand unification of all meaningful dimensions of the digital into one coherent, tightly integrated system. A complete refactoring of the digital into something ergonomic to the human mind and organic to the social sphere.
 
+**DreamOS = InterBrain minus everything that's not the InterBrain.** Going from InterBrain to DreamOS is purification, not addition. InterBrain in a folder on macOS → same thing but the folder IS your user directory → that's DreamOS. Every external dependency removed is a step closer. The vault becomes the user directory becomes the operating system.
+
+**AURYN is the heart of DreamOS.** DreamOS is the horizon — the complete vision of sovereign computing. AURYN sits at the center. The knowledge garden lives in between. The Poincaré disc: AURYN at the origin, DreamOS as the boundary at infinity, relevance realization continuously moving things from horizon to center. You never arrive at DreamOS — you grow toward it from AURYN outward.
+
+**SaaS is over.** Every subscription collapses into one cost: inference. Cinema 4D → DreamTalk. Zoom → own WebRTC. YouTube → own media player. Spotify → own library. The InterBrain/DreamOS stack vertically owns the entire surface area of digital life. The only remaining external cost is the electricity to think — LLM inference — and even that decentralizes as local models improve.
+
 ## The Fundamental Property
 
 **Every DreamNode is a place you can meet people.**
 
-Not "some apps have multiplayer." Not "here's a special collaborative document." Every unit of the system - by default - is a place where you can invite friends.
+Not "some apps have multiplayer." Not "here's a special collaborative document." Every unit of the system - by default - is a place where you can invite friends. This is true on desktop and mobile equally — one codebase, Tauri targets both. A smartphone running DreamOS is not a lesser version. It is the same system.
 
 ```
 macOS window buttons:    [🔴 Close] [🟡 Minimize] [🟢 Maximize]
@@ -110,7 +116,7 @@ Each step is exciting standalone. Together, unprecedented.
 ### Stage 1: Canvas Dreamweaving (NOW)
 - Shared canvas for connecting DreamTalks
 - Single-player, async collaboration via git
-- Already implemented in InterBrain
+- Running in the InterBrain Tauri app (extracted from the original Obsidian plugin)
 
 ### Stage 2: Multiplayer Canvas (NEXT)
 - Real-time CRDT sync (Yjs)
@@ -124,7 +130,8 @@ Each step is exciting standalone. Together, unprecedented.
 
 ### Stage 4: Interactive DreamSongs (DreamTalk as UI)
 - DreamSong evolves from linear canvas to interactive 3D UI
-- DreamTalk renderer (wgpu + Vello) replaces browser-based rendering entirely
+- DreamTalk renderer (wgpu + Vello) replaces browser-based rendering entirely — including the webview itself
+- The DreamTalk Rust/wgpu runtime renders the entire UI natively. No browser engine needed for native apps. This is the final step of DreamOS sovereignty — the last external dependency (the webview) dissolves
 - 3D is default, 2D is the edge case (orthographic camera, z=0 plane)
 - Tiling window management = layout containers (same code for OS-level and in-app layout)
 - Voice-driven AI builds interfaces
@@ -167,6 +174,20 @@ DreamOS returns to the elegance of Unix and Plan 9:
 - **Composable via pipes** - DreamNodes chain together like Unix tools
 
 DreamTalk's Rust runtime (wgpu + Vello) handles all rendering — native GPU, no browser engine required. Gestures translate to CLI invocations. Actual work happens in Unix tools. The browser is one deployment target (via WASM), not the foundation.
+
+### Bridge Injection: Transport-Agnostic Custom UIs
+
+A DreamNode's `index.html` runs in multiple contexts — a Tauri webview, a local browser, a phone over Tailscale — each with a different communication transport. The custom UI author should never think about this.
+
+The solution: the host environment injects the bridge. When the Tauri app serves `index.html` in a webview, it injects a `<script>` that provides a `bridge` global using Tauri's IPC. When the Python server serves the same file to an external browser, it injects a `bridge` global using WebSocket. The custom UI just calls `bridge.send()` and `bridge.onMessage()` — same API, different transport underneath.
+
+This means:
+- Custom UI authors write against one interface
+- No `bridge.js` file ships with the DreamNode — the bridge appears automatically, like a browser API
+- The bridge implementation can evolve without touching any custom UI
+- The same `index.html` works in every context without modification
+
+The protocol (message types like `ai-inference-stream-request`, `cli-exec`, `dreamnode-catalog-request`) is the contract. The transport is an implementation detail hidden by injection.
 
 ### Plan 9 Extension: Runtime State as Files
 
@@ -244,7 +265,7 @@ Now `cat` isn't a mystery - it's a digital spirit in your collection. Grandma's 
 
 iCloud vs local distinction dissolves:
 - **Git history**: Accidental deletion recoverable
-- **Radicle remotes**: Decentralized P2P mirroring through liminal web
+- **GitTorrent F2F transport**: Friend-to-friend git synchronization — your trusted peers mirror your repos, no infrastructure needed. The liminal web IS the transport layer
 - **No corporate dependency**: Your friends hold your data, not Apple/Google
 
 You couldn't ever lose important things because they're held in your network.
@@ -368,8 +389,8 @@ The digital finally becomes *spatial* the way physical reality is. This is what 
 
 ## Related
 
-- **InterBrain** - The Obsidian plugin foundation
-- **AURYN** - The agentic layer, template, CLI tools
+- **InterBrain** - The Tauri app — DreamOS running inside an existing OS
+- **AURYN** - The heart — agentic layer, template, CLI tools, knowledge gardening
 - **Collective-Dreamweaving** - The dialogos layer (multiplayer)
-- **InterBrain Mobile** - Thin client for joining
+- **DreamTalk** - The rendering engine that eventually replaces the webview entirely
 - **Software Gardening** - The development philosophy
