@@ -39,6 +39,30 @@ DreamOS operates in three nested modes, each a different relationship between th
 
 **Creator Loop ⊃ Game Loop ⊃ Cutscene Loop.** Each outer loop contains and can break into the inner ones. A cutscene is a constrained game is a constrained creation session. Removing constraints is always possible; adding them is a creative choice.
 
+### Event Bubbling: The Scene Graph as Conversation Interface
+
+Clicking any symbol without a handler IS talking to AURYN about that symbol. The scene graph becomes a pointing interface — you don't describe what you mean, you click it. AURYN receives the click plus the symbol's full context (name, type, properties, position in the scene).
+
+The event model follows DOM-style bubbling: interaction at a symbol → if unhandled, bubbles to scene → if unhandled, bubbles to DreamNode → if unhandled, AURYN catches it. Nothing ever goes unhandled. AURYN is the universal fallback handler, like HyperCard's Home stack catching messages that no other handler claimed.
+
+**Creator mode amplifies this.** In creator mode, ALL game handlers deactivate — every click goes to AURYN. The entire scene becomes a conversation through pointing. This obsoletes React and the entire component/props/state management pattern. Each symbol only knows about itself. Parents catch unhandled child events. Add new elements — they work without wiring. No event subscription, no state management boilerplate, no prop drilling. The scene graph IS the component tree, and bubbling IS the communication protocol.
+
+### Unified Creator + Game Git History
+
+One git history contains both creating and using. Creator mode commits record structural changes (add nodes, attach handlers). Game mode commits record usage sessions, playtests, replays. Both are DreamTalk expressions recorded with Command trailers in git metadata.
+
+Filter by mode: `git log --grep="creator"` or `git log --grep="game"`. Squash old game sessions to save space but keep highlights. Creator commits are permanent — the recipe. Game commits are optional, squashable — the experience.
+
+**Replayability**: Replay creator history → rebuild the app from scratch. Replay game history → watch a usage session. Replay both → watch creation and testing interleaved. The git log becomes a documentary of the dream's life — how it was built, how it was used, how it evolved.
+
+### No Build Step = Git Checkout Is Time Travel
+
+Because the scene graph is a text file that the renderer reads directly, there is no build step. `git checkout abc123` instantly shows the app as it was at that commit. The renderer reads the file, draws it. No compile, no bundle, no wait.
+
+This enables Apple Time Machine-style UI for every DreamNode. Scrub through git history, see the DreamSong at each commit rendered live. Git worktrees allow side-by-side comparison of different points in time — place two windows next to each other, each showing a different era of the same dream.
+
+Git becomes the ultimate undo system. Every state is recoverable instantly. The commit history IS the time machine. No save files — every commit IS a save. Combined with the unified creator/game history, you can scrub back to a specific playtest session and see exactly what the world looked like when that session happened.
+
 ### The Eternal Garden
 
 Every DreamNode lives at the vault root — sovereign, eternal, addressable by UUID. This is the garden: a flat field of sovereign beings, each tended independently.
@@ -289,6 +313,27 @@ DreamNode/
 ```
 
 **Agent debuggability**: An AI debugging a broken app runs `cat /App/.state/errors` - no special protocols, just files.
+
+### The /dev/ Namespace: System State as Files
+
+DreamOS extends Plan 9's philosophy to expose all live system state through a `/dev/`-style namespace:
+
+```
+~/.auryn/dev/scene.dt    — the current scene graph (text, the SOURCE of truth)
+~/.auryn/dev/draw        — the rendered pixels (binary, always-current screenshot)
+~/.auryn/dev/input       — cursor position, keyboard state, touch points
+~/.auryn/dev/audio       — spatial audio state
+~/.auryn/proc/           — running DreamTalk scripts and their status
+~/.auryn/net/peers       — WebRTC connections, peer status
+```
+
+AI agents perceive the system by reading files. No special APIs. No debug protocols. `cat ~/.auryn/dev/scene.dt` shows what the user sees — the semantic structure. `cat ~/.auryn/dev/draw > screenshot.png` captures pixels for visual reasoning. Three levels of perception emerge naturally:
+
+1. **Scene graph** (semantic, instant) — the text file describes what's in the world, what each thing is called, how things relate. An AI reads this like reading a room description.
+2. **Verbose state** (structural, instant) — process status, error logs, connection state. The diagnostic layer.
+3. **Screenshot** (visual, slow) — the rendered pixels. For when the AI needs to see what the human sees. The slowest but richest perception mode.
+
+The scene graph being a text file is what makes this work. Because `scene.dt` is the source of truth (not a derived representation), reading it gives the AI the same information the renderer uses. The AI and the renderer read the same file.
 
 ### CLI as Universal API (MCP Obsolescence)
 
